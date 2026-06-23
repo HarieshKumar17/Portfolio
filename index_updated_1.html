@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hariesh Kumar S K — Senior Generative AI Engineer</title>
+<meta name="description" content="Senior Generative AI Engineer specializing in RAG systems, AI agents, LangGraph workflows, MCP integration, and Responsible AI. 3+ years enterprise AI at Prodapt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+/* ── DESIGN TOKENS (exact from phase1-4) ─────────────────── */
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f8f8f6;
+  --color-background-tertiary: #f1efe8;
+  --color-background-info: #e6f1fb;
+  --color-background-success: #e1f5ee;
+  --color-background-warning: #faeeda;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5a5a6a;
+  --color-text-tertiary: #9090a8;
+  --color-text-info: #0c447c;
+  --color-text-success: #085041;
+  --color-text-warning: #633806;
+  --color-border-tertiary: rgba(0,0,0,0.09);
+  --color-border-secondary: rgba(0,0,0,0.18);
+  --color-border-primary: rgba(0,0,0,0.28);
+  --color-border-info: #85b7eb;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--color-background-secondary);color:var(--color-text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:0.5px solid var(--color-border-tertiary)}
+.nav-logo{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.nav-logo span{color:#185FA5}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:13px;color:var(--color-text-secondary);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--color-text-primary)}
+.nav-cta{font-size:12px;font-weight:500;padding:7px 16px;border-radius:var(--border-radius-md);background:#185FA5;color:#E6F1FB;text-decoration:none;border:none;cursor:pointer;transition:opacity .15s}
+.nav-cta:hover{opacity:.87}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ── PAGE WRAPPER ────────────────────────────────────────── */
+.page-section{max-width:860px;margin:0 auto;padding:5rem 2rem 3rem}
+.page-section:first-of-type{padding-top:7rem}
+.section-divider{border:none;border-top:0.5px solid var(--color-border-tertiary);max-width:860px;margin:0 auto}
+
+/* ── LABELS (exact from phases) ─────────────────────────── */
+.sec-label{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:1.25rem}
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:#3C3489;background:#EEEDFE;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem}
+.hero-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:#3C3489;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;color:var(--color-text-primary);line-height:1.15;margin-bottom:.5rem}
+.hero-title{font-size:15px;color:#185FA5;font-weight:500;margin-bottom:1rem;line-height:1.45}
+.hero-tagline{font-size:15px;color:var(--color-text-secondary);line-height:1.7;max-width:560px;margin-bottom:1.5rem}
+.hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.75rem}
+.pill{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px}
+.pill-p{background:#EEEDFE;color:#3C3489}
+.pill-t{background:#E1F5EE;color:#085041}
+.pill-b{background:#E6F1FB;color:#0C447C}
+.pill-a{background:#FAEEDA;color:#633806}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem}
+.cta-primary{font-size:13px;font-weight:500;padding:9px 20px;border-radius:var(--border-radius-md);background:#185FA5;color:#E6F1FB;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .15s}
+.cta-primary:hover{opacity:.87}
+.cta-secondary{font-size:13px;font-weight:500;padding:9px 20px;border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-primary);border:0.5px solid var(--color-border-secondary);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
+.cta-secondary:hover{border-color:var(--color-border-primary)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:400px}
+.stat{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px;text-align:center}
+.stat-num{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+
+/* ── ABOUT ───────────────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;margin-top:.5rem}
+.about-block{background:var(--color-background-primary);border-radius:var(--border-radius-lg);padding:1.5rem;border:0.5px solid var(--color-border-tertiary)}
+.about-text{font-size:14px;color:var(--color-text-primary);line-height:1.75}
+.about-text+.about-text{margin-top:.9rem}
+.highlight{color:#185FA5;font-weight:500}
+.award-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.award-icon{width:36px;height:36px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ai-gold{background:#FAEEDA;color:#633806}
+.ai-green{background:#E1F5EE;color:#085041}
+.ai-blue{background:#E6F1FB;color:#0C447C}
+.award-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.award-sub{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+
+/* ── TECH STACK ──────────────────────────────────────────── */
+.stack-group{margin-bottom:1.25rem}
+.stack-group-label{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tag-grid{display:flex;flex-wrap:wrap;gap:6px}
+.stag{font-size:12px;font-weight:500;padding:5px 11px;border-radius:var(--border-radius-md);border:0.5px solid}
+.stag-p{background:#EEEDFE;color:#3C3489;border-color:#AFA9EC}
+.stag-t{background:#E1F5EE;color:#085041;border-color:#5DCAA5}
+.stag-b{background:#E6F1FB;color:#0C447C;border-color:#85B7EB}
+.stag-a{background:#FAEEDA;color:#633806;border-color:#EF9F27}
+.stag-g{background:#EAF3DE;color:#27500A;border-color:#97C459}
+.stag-c{background:#FAECE7;color:#712B13;border-color:#F0997B}
+.stag-gray{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-secondary)}
+
+/* ── SPECIALIZATIONS ─────────────────────────────────────── */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:.5rem}
+.spec-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;transition:border-color .15s}
+.spec-card:hover{border-color:var(--color-border-secondary)}
+.spec-icon{font-size:20px;margin-bottom:8px}
+.spec-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.spec-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+.spec-badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;margin-top:6px}
+.sb-core{background:#E1F5EE;color:#085041}
+.sb-diff{background:#EEEDFE;color:#3C3489}
+.sb-ent{background:#FAEEDA;color:#633806}
+.sb-new{background:#EAF3DE;color:#27500A}
+
+/* ── RESPONSIBLE AI ──────────────────────────────────────── */
+.rai-intro{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin-bottom:1.25rem}
+.rai-intro p{font-size:14px;color:var(--color-text-primary);line-height:1.75}
+.rai-intro p+p{margin-top:.75rem}
+.rai-intro strong{color:#185FA5}
+.rai-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rai-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:0}
+.rai-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.rai-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.rai-items{display:flex;flex-wrap:wrap;gap:6px}
+.rai-item{font-size:11px;padding:3px 9px;border-radius:20px}
+.rai-teal{background:#E1F5EE;color:#085041}
+.rai-purple{background:#EEEDFE;color:#3C3489}
+.rai-amber{background:#FAEEDA;color:#633806}
+.rai-blue{background:#E6F1FB;color:#0C447C}
+@media(max-width:640px){.rai-grid{grid-template-columns:1fr}}
+
+/* ── EXPERIENCE ──────────────────────────────────────────── */
+.achieve-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:12px}
+.achieve-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.achieve-icon{width:36px;height:36px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.icon-prodapt{background:#E6F1FB;color:#185FA5}
+.icon-cognizant{background:#E1F5EE;color:#0F6E56}
+.achieve-company{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.achieve-role{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.achieve-award{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;margin-left:auto}
+.award-gold{background:#FAEEDA;color:#633806}
+.award-green{background:#E1F5EE;color:#085041}
+.bullet-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.bullet-list li{font-size:13px;color:var(--color-text-primary);line-height:1.55;padding-left:16px;position:relative}
+.bullet-list li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#185FA5}
+.impact-tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;background:#EEEDFE;color:#3C3489;margin-left:6px;vertical-align:middle}
+
+/* ── PROJECTS ────────────────────────────────────────────── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:1.5rem}
+.proj-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;cursor:pointer;transition:border-color .15s}
+.proj-card:hover{border-color:var(--color-border-secondary)}
+.proj-card.flagship{border:2px solid var(--color-border-info)}
+.proj-num{font-size:11px;font-weight:500;color:var(--color-text-tertiary);margin-bottom:6px;letter-spacing:.04em}
+.proj-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px;line-height:1.35}
+.proj-oneliner{font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:10px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.ptag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px}
+.pt-p{background:#EEEDFE;color:#3C3489}
+.pt-t{background:#E1F5EE;color:#085041}
+.pt-b{background:#E6F1FB;color:#0C447C}
+.pt-a{background:#FAEEDA;color:#633806}
+.pt-g{background:#EAF3DE;color:#27500A}
+.pt-c{background:#FAECE7;color:#712B13}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px}
+.badge-gold{background:#FAEEDA;color:#633806}
+.badge-blue{background:#E6F1FB;color:#0C447C}
+.badge-teal{background:#E1F5EE;color:#085041}
+.badge-purple{background:#EEEDFE;color:#3C3489}
+.badge-inprogress{background:#E1F5EE;color:#085041}
+.detail-panel{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin-bottom:1.5rem}
+.detail-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem}
+.detail-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+.detail-sub{font-size:12px;color:var(--color-text-secondary);margin-top:3px}
+.close-btn{font-size:12px;padding:4px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;flex-shrink:0}
+.detail-body{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.detail-col h4{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px}
+.detail-col p{font-size:13px;color:var(--color-text-primary);line-height:1.6;margin:0 0 8px}
+.detail-col ul{margin:0;padding:0 0 0 14px;list-style:disc}
+.detail-col ul li{font-size:12px;color:var(--color-text-primary);line-height:1.55;margin-bottom:4px}
+.impact-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.impact-chip{font-size:11px;font-weight:500;padding:4px 10px;border-radius:var(--border-radius-md);background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);color:var(--color-text-primary)}
+.arch-row{margin-top:12px}
+.arch-label{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.arch-steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.arch-step{font-size:11px;font-weight:500;padding:5px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)}
+.arch-arrow{font-size:12px;color:var(--color-text-tertiary)}
+@media(max-width:640px){.detail-body{grid-template-columns:1fr}}
+
+/* ── SERVICES ────────────────────────────────────────────── */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin-top:.5rem}
+.svc-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;transition:border-color .15s}
+.svc-card:hover{border-color:var(--color-border-secondary)}
+.svc-icon{font-size:20px;margin-bottom:8px}
+.svc-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px}
+.svc-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.55;margin-bottom:8px}
+.svc-items{display:flex;flex-direction:column;gap:3px}
+.svc-item{font-size:11px;color:var(--color-text-secondary);padding-left:12px;position:relative}
+.svc-item::before{content:"";position:absolute;left:0;top:6px;width:4px;height:4px;border-radius:50%;background:var(--color-border-primary)}
+
+/* ── PACKAGES ────────────────────────────────────────────── */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:.5rem}
+.pkg-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;display:flex;flex-direction:column}
+.pkg-card.featured{border:2px solid var(--color-border-info)}
+.pkg-badge{display:inline-block;font-size:10px;font-weight:500;padding:3px 9px;border-radius:20px;margin-bottom:.875rem}
+.pb-teal{background:#E1F5EE;color:#085041}
+.pb-blue{background:#E6F1FB;color:#0C447C}
+.pb-amber{background:#FAEEDA;color:#633806}
+.pkg-tier{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.2rem}
+.pkg-for{font-size:11px;color:var(--color-text-tertiary);margin-bottom:1rem}
+.pkg-price{font-size:14px;font-weight:500;color:#185FA5;margin-bottom:.2rem}
+.pkg-note{font-size:10px;color:var(--color-text-tertiary);margin-bottom:1rem}
+.pkg-divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:10px 0}
+.pkg-features{display:flex;flex-direction:column;gap:6px;flex:1}
+.pkg-feat{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--color-text-primary);line-height:1.45}
+.feat-check{font-size:13px;color:#1D9E75;flex-shrink:0;margin-top:1px}
+.pkg-cta{width:100%;margin-top:14px;padding:9px;font-size:12px;font-weight:500;border-radius:var(--border-radius-md);cursor:pointer;transition:all .15s}
+.pkg-cta-primary{background:#185FA5;color:#E6F1FB;border:none}
+.pkg-cta-primary:hover{opacity:.87}
+.pkg-cta-secondary{background:transparent;color:var(--color-text-primary);border:0.5px solid var(--color-border-secondary)}
+.pkg-cta-secondary:hover{border-color:var(--color-border-primary)}
+.pkg-cta-note{font-size:10px;color:var(--color-text-tertiary);text-align:center;margin-top:.4rem}
+@media(max-width:640px){.pkg-grid{grid-template-columns:1fr}}
+
+/* ── MENTORING ───────────────────────────────────────────── */
+.mentor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:.5rem}
+.mentor-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem}
+.mentor-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.mentor-icon{width:34px;height:34px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.mentor-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.mentor-for{font-size:11px;color:var(--color-text-secondary)}
+.mentor-price{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.mentor-rate{font-size:11px;color:var(--color-text-tertiary);margin-bottom:10px}
+.topic-chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:10px;font-weight:500;padding:3px 8px;border-radius:4px}
+.chip-p{background:#EEEDFE;color:#3C3489}
+.chip-t{background:#E1F5EE;color:#085041}
+.chip-b{background:#E6F1FB;color:#0C447C}
+.chip-a{background:#FAEEDA;color:#633806}
+.chip-g{background:#EAF3DE;color:#27500A}
+.chip-c{background:#FAECE7;color:#712B13}
+
+/* ── WORK WITH ME ────────────────────────────────────────── */
+.wm-intro{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;margin-bottom:1.25rem}
+.wm-text{font-size:14px;color:var(--color-text-primary);line-height:1.75}
+.wm-text+.wm-text{margin-top:.75rem}
+.hl{color:#185FA5;font-weight:500}
+.onboard-steps{display:flex;flex-direction:column;gap:8px;margin-top:1rem}
+.onboard-step{display:flex;align-items:flex-start;gap:12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;background:#E6F1FB;color:#0C447C}
+.step-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.step-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:1rem;margin-bottom:1.5rem}
+.aud-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.875rem}
+.aud-icon{font-size:18px;margin-bottom:6px}
+.aud-name{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.aud-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.45}
+
+/* ── CTA / CONTACT ───────────────────────────────────────── */
+.cta-block{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:2.5rem 2rem;text-align:center}
+.cta-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:.6rem;line-height:1.25}
+.cta-sub{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:.75rem}
+.cta-reassure{font-size:11px;color:var(--color-text-tertiary)}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer{border-top:0.5px solid var(--color-border-tertiary);padding:1.5rem 2rem;text-align:center;font-size:12px;color:var(--color-text-tertiary)}
+
+/* ── FADE IN ─────────────────────────────────────────────── */
+.fade-in{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.fade-in.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Hariesh Kumar<span></span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="page-section fade-in">
+  <!-- <div class="hero-tag"><i class="ti ti-cpu" style="font-size:11px" aria-hidden="true"></i> Available for enterprise engagements</div> -->
+  <h1 class="hero-name">Hariesh Kumar S K</h1>
+  <p class="hero-title">Senior Generative AI Engineer &nbsp;·&nbsp; AI Solutions Architect &nbsp;·&nbsp; Responsible AI Engineer</p>
+  <p class="hero-tagline">I design, build, and deploy enterprise-grade AI systems — from multi-agent RAG pipelines and autonomous workflows to governed, production-safe LLM architectures on GCP and Azure.</p>
+  <div class="hero-pills">
+    <span class="pill pill-p">LLM Engineering</span>
+    <span class="pill pill-p">AI Agents</span>
+    <span class="pill pill-p">LangGraph</span>
+    <span class="pill pill-t">RAG Pipelines</span>
+    <span class="pill pill-t">MCP Integration</span>
+    <span class="pill pill-b">Vertex AI</span>
+    <span class="pill pill-b">GCP / Azure</span>
+    <span class="pill pill-a">Responsible AI</span>
+    <span class="pill pill-a">AI Governance</span>
+  </div>
+  <div class="cta-row">
+    <a href="#projects" class="cta-primary">View my work</a>
+    <a href="#" class="cta-secondary">Download resume</a>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">3.5+</div><div class="stat-label">Years in AI</div></div>
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Production systems</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Enterprise awards</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ABOUT -->
+<section id="about" class="page-section fade-in">
+  <div class="sec-label">About me</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-block">
+        <p class="about-text">I'm <span class="highlight">Hariesh Kumar S K</span>, a Senior Generative AI Engineer with <span class="highlight">3.5+ years of hands-on experience</span> designing and deploying enterprise-grade AI systems — from multi-repository knowledge bots and autonomous multi-agent workflows to governed LLM pipelines built on GCP </p>
+        <p class="about-text">My path into AI was deliberate. Starting in QA engineering, I developed a sharp eye for reliability, system behavior, and production quality — instincts that now directly shape how I architect AI systems. I don't just build AI that works in a demo. I build AI that holds up in production: <span class="highlight">grounded, governed, auditable, and safe.</span></p>
+        <p class="about-text">At <span class="highlight">Prodapt</span>, I led development of a multi-repository telecom knowledge assistant integrating SharePoint, Guided action for field technicians  — earning the <span class="highlight">Rising Rookie Award</span>. At <span class="highlight">Cognizant</span>, I built RAG-based chatbots, drove GenAI knowledge-sharing sessions, and earned the <span class="highlight">Spotlight Award</span>.</p>
+        <p class="about-text">Today I specialize in <span class="highlight">LLM engineering, RAG systems, AI agents, LangGraph workflows, MCP integrations, and Responsible AI governance</span>. I also mentor developers transitioning into AI and helping on their first production AI systems.</p>
+      </div>
+    </div>
+    <div>
+      <div class="award-card">
+        <div class="award-icon ai-gold"><i class="ti ti-award" aria-hidden="true"></i></div>
+        <div><div class="award-title">Rising Rookie Award</div><div class="award-sub">Prodapt · 2025</div></div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon ai-green"><i class="ti ti-award" aria-hidden="true"></i></div>
+        <div><div class="award-title">Spotlight Award</div><div class="award-sub">Cognizant · 2023</div></div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon ai-blue"><i class="ti ti-school" aria-hidden="true"></i></div>
+        <div><div class="award-title">B.Tech — Amrita Vishwa Vidyapeetham</div><div class="award-sub">CGPA: 8.3 / 10</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TECH STACK -->
+<section id="stack" class="page-section fade-in">
+  <div class="sec-label">Technical stack</div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-brain" aria-hidden="true"></i> LLM models</div>
+    <div class="tag-grid">
+      <span class="stag stag-p">OpenAI</span><span class="stag stag-p">Claude</span><span class="stag stag-p">Gemini</span><span class="stag stag-p">Meta LLaMA</span><span class="stag stag-p">Mistral</span><span class="stag stag-p">Groq</span><span class="stag stag-p">Azure OpenAI</span><span class="stag stag-p">Vertex AI</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-topology-star-3" aria-hidden="true"></i> AI frameworks &amp; orchestration</div>
+    <div class="tag-grid">
+      <span class="stag stag-t">LangChain</span><span class="stag stag-t">LangGraph</span><span class="stag stag-t">LlamaIndex</span><span class="stag stag-t">CrewAI</span><span class="stag stag-t">Hugging Face</span><span class="stag stag-t">Vertex AI SDK</span><span class="stag stag-t">Google ADK</span><span class="stag stag-t">n8n</span><span class="stag stag-t">Flowise</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-layers-intersect" aria-hidden="true"></i> AI engineering</div>
+    <div class="tag-grid">
+      <span class="stag stag-b">RAG Pipelines</span><span class="stag stag-b">AI Agents</span><span class="stag stag-b">Tool Calling</span><span class="stag stag-b">MCP Integration</span><span class="stag stag-b">Prompt Engineering</span><span class="stag stag-b">Few-shot &amp; Chain-of-thought</span><span class="stag stag-b">Memory Management</span><span class="stag stag-b">Context &amp; Token Optimization</span><span class="stag stag-b">AI Evaluation</span><span class="stag stag-b">Hallucination Reduction</span><span class="stag stag-b">Autonomous Workflows</span><span class="stag stag-b">Multimodal AI</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-cloud" aria-hidden="true"></i> Cloud &amp; infrastructure</div>
+    <div class="tag-grid">
+      <span class="stag stag-b">GCP / Vertex AI</span><span class="stag stag-b">BigQuery</span><span class="stag stag-b">Cloud Run</span><span class="stag stag-b">Pub/Sub</span><span class="stag stag-b">Cloud Scheduler</span><span class="stag stag-b">Firestore</span><span class="stag stag-b">GCS</span><span class="stag stag-b">AWS</span><span class="stag stag-b">Azure</span><span class="stag stag-b">Docker</span><span class="stag stag-b">Docker Compose</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-database" aria-hidden="true"></i> Vector stores &amp; databases</div>
+    <div class="tag-grid">
+      <span class="stag stag-a">Vertex AI Vector Search</span><span class="stag stag-a">FAISS</span><span class="stag stag-a">ChromaDB</span><span class="stag stag-a">Pinecone</span><span class="stag stag-a">Elasticsearch (BM25)</span><span class="stag stag-a">PostgreSQL</span><span class="stag stag-a">Redis</span><span class="stag stag-a">Firestore</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-eye" aria-hidden="true"></i> Vision &amp; multimodal</div>
+    <div class="tag-grid">
+      <span class="stag stag-c">Stable Diffusion</span><span class="stag stag-c">ControlNet</span><span class="stag stag-c">ComfyUI</span><span class="stag stag-c">LoRA</span><span class="stag stag-c">OpenCV</span><span class="stag stag-c">Google Vision API</span><span class="stag stag-c">OCR</span><span class="stag stag-c">Whisper</span>
+    </div>
+  </div>
+  <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-tools" aria-hidden="true"></i> Developer tools &amp; AI workflow</div>
+    <div class="tag-grid">
+      <span class="stag stag-g">Claude Code</span><span class="stag stag-g">Claude Coworker</span><span class="stag stag-g">Cursor</span><span class="stag stag-g">GitHub / Git</span><span class="stag stag-g">FastAPI</span><span class="stag stag-g">Streamlit</span><span class="stag stag-g">Flask</span><span class="stag stag-g">Gradio</span><span class="stag stag-g">REST APIs</span><span class="stag stag-g">WebSocket</span>
+    </div>
+  </div>
+  <!-- <div class="stack-group">
+    <div class="stack-group-label"><i class="ti ti-code" aria-hidden="true"></i> Programming languages</div>
+    <div class="tag-grid">
+      <span class="stag stag-gray">Python</span><span class="stag stag-gray">JavaScript</span><span class="stag stag-gray">SQL</span><span class="stag stag-gray">Bash</span><span class="stag stag-gray">Java</span>
+    </div>
+  </div> -->
+</section>
+
+<hr class="section-divider">
+
+<!-- SPECIALIZATIONS -->
+<section id="specializations" class="page-section fade-in">
+  <div class="sec-label">AI specializations</div>
+  <div class="spec-grid">
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-brain" style="color:#534AB7" aria-hidden="true"></i></div><div class="spec-name">LLM engineering</div><div class="spec-desc">Production LLM integration, prompt architecture, token optimization, multi-model strategy across OpenAI, Gemini, Claude, and open-source stacks.</div><span class="spec-badge sb-core">Core specialization</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-search" style="color:#0F6E56" aria-hidden="true"></i></div><div class="spec-name">RAG systems</div><div class="spec-desc">End-to-end RAG pipelines: chunking, hybrid search, reranking, context compression, and source-grounded generation with citation enforcement.</div><span class="spec-badge sb-core">Core specialization</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-robot" style="color:#185FA5" aria-hidden="true"></i></div><div class="spec-name">AI agents</div><div class="spec-desc">Multi-agent system design, tool-calling agents, memory-augmented agents, and orchestration with LangGraph, CrewAI, and MCP.</div><span class="spec-badge sb-core">Core specialization</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-circuit-changeover" style="color:#854F0B" aria-hidden="true"></i></div><div class="spec-name">Autonomous workflows</div><div class="spec-desc">LangGraph stateful workflow orchestration, human-in-the-loop checkpoints, decision branching, and enterprise automation with n8n and Flowise.</div><span class="spec-badge sb-ent">Enterprise focus</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-plug-connected" style="color:#3B6D11" aria-hidden="true"></i></div><div class="spec-name">MCP integration</div><div class="spec-desc">Model Context Protocol server design enabling AI models to interact with external tools, APIs, and enterprise data sources in real time.</div><span class="spec-badge sb-new">Emerging standard</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-antenna" style="color:#993C1D" aria-hidden="true"></i></div><div class="spec-name">Telecom AI</div><div class="spec-desc">Domain-specialized AI for telecom: fault detection, ticket automation, knowledge retrieval across multi-system enterprise environments.</div><span class="spec-badge sb-ent">Domain expertise</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-cloud-computing" style="color:#185FA5" aria-hidden="true"></i></div><div class="spec-name">Cloud-native AI</div><div class="spec-desc">Production AI deployments on GCP Vertex AI, Cloud Run, Azure OpenAI — dockerized, scalable, with monitoring and cost-optimized inference.</div><span class="spec-badge sb-ent">Production-grade</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-photo-ai" style="color:#534AB7" aria-hidden="true"></i></div><div class="spec-name">Multimodal AI</div><div class="spec-desc">Vision LLMs, OCR pipelines, image understanding, AI product photography, Stable Diffusion workflows, and audio transcription with Whisper.</div><span class="spec-badge sb-diff">Expanding capability</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-books" style="color:#0F6E56" aria-hidden="true"></i></div><div class="spec-name">Enterprise knowledge systems</div><div class="spec-desc">Multi-source ingestion, embedding pipelines, intelligent document retrieval across SharePoint, Jira, Git, and ServiceNow.</div><span class="spec-badge sb-ent">Enterprise focus</span></div>
+    <div class="spec-card"><div class="spec-icon"><i class="ti ti-shield-check" style="color:#3B6D11" aria-hidden="true"></i></div><div class="spec-name">Responsible AI</div><div class="spec-desc">Guardrail design, governance frameworks, hallucination reduction, bias mitigation, auditability, and enterprise-safe deployment architecture.</div><span class="spec-badge sb-diff">Key differentiator</span></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- RESPONSIBLE AI -->
+<section id="responsible-ai" class="page-section fade-in">
+  <div class="sec-label">Responsible AI &amp; governance</div>
+  <div class="rai-intro">
+    <p>Building powerful AI is only half the challenge. At enterprise scale, AI systems must also be <strong>explainable, auditable, safe to operate autonomously, and compliant with organizational risk standards.</strong></p>
+    <p>Across every system I've deployed at Prodapt and Cognizant, Responsible AI was not an afterthought — it was a design constraint from day one. I build AI that leadership can demo, compliance teams can audit, and operations can trust to run at scale.</p>
+  </div>
+  <div class="rai-grid">
+    <div class="rai-card">
+      <div class="rai-header"><i class="ti ti-shield" aria-hidden="true" style="font-size:18px;color:#0F6E56"></i><div class="rai-title">AI guardrail systems</div></div>
+      <div class="rai-items"><span class="rai-item rai-teal">Prompt injection defense</span><span class="rai-item rai-teal">Input validation layers</span><span class="rai-item rai-teal">Output content filtering</span><span class="rai-item rai-teal">Tool-calling permission boundaries</span><span class="rai-item rai-teal">Agent action scope limits</span><span class="rai-item rai-teal">Confidence-scored fallbacks</span></div>
+    </div>
+    <div class="rai-card">
+      <div class="rai-header"><i class="ti ti-chart-dots" aria-hidden="true" style="font-size:18px;color:#534AB7"></i><div class="rai-title">Hallucination reduction &amp; reliability</div></div>
+      <div class="rai-items"><span class="rai-item rai-purple">Source-grounded generation</span><span class="rai-item rai-purple">Retrieval validation pipelines</span><span class="rai-item rai-purple">Citation enforcement</span><span class="rai-item rai-purple">Confidence scoring</span><span class="rai-item rai-purple">Answer quality evaluation</span><span class="rai-item rai-purple">Fallback to human review</span></div>
+    </div>
+    <div class="rai-card">
+      <div class="rai-header"><i class="ti ti-clipboard-check" aria-hidden="true" style="font-size:18px;color:#854F0B"></i><div class="rai-title">AI governance &amp; auditability</div></div>
+      <div class="rai-items"><span class="rai-item rai-amber">AI lifecycle governance</span><span class="rai-item rai-amber">Decision traceability logs</span><span class="rai-item rai-amber">AI monitoring dashboards</span><span class="rai-item rai-amber">Human-in-the-loop checkpoints</span><span class="rai-item rai-amber">Compliance-aware workflows</span><span class="rai-item rai-amber">Drift detection</span></div>
+    </div>
+    <div class="rai-card">
+      <div class="rai-header"><i class="ti ti-lock-access" aria-hidden="true" style="font-size:18px;color:#185FA5"></i><div class="rai-title">Agentic AI safety</div></div>
+      <div class="rai-items"><span class="rai-item rai-blue">Safe autonomous workflow design</span><span class="rai-item rai-blue">Multi-agent governance</span><span class="rai-item rai-blue">Approval gate architecture</span><span class="rai-item rai-blue">Secure enterprise auth workflows</span><span class="rai-item rai-blue">Data governance compliance</span><span class="rai-item rai-blue">AI observability pipelines</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- EXPERIENCE -->
+<section id="experience" class="page-section fade-in">
+  <div class="sec-label">Enterprise experience</div>
+  <div class="achieve-card">
+    <div class="achieve-header">
+      <div class="achieve-icon icon-prodapt"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
+      <div><div class="achieve-company">Prodapt</div><div class="achieve-role">Senior Software Developer — GenAI Engineer &nbsp;·&nbsp; 2025 – Present</div></div>
+      <span class="achieve-award award-gold"><i class="ti ti-award" aria-hidden="true" style="font-size:12px"></i> Rising Rookie Award</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Architected and deployed a <strong>multi-repository telecom knowledge assistant</strong> using LlamaIndex and Vertex AI Search, unifying Jira, SharePoint, Git, ServiceNow, PDFs, and Watson into a single governed AI interface — eliminating siloed knowledge across 6 enterprise systems. <span class="impact-tag">Enterprise scale</span></li>
+      <li>Built <strong>automated multi-agent telecom ticket workflows</strong> that reduced technician dispatch overhead through AI-driven fault classification, root-cause decisioning, and autonomous ticket routing — directly cutting operational costs in field operations.</li>
+      <li>Designed and implemented <strong>Responsible AI guardrails</strong> across all deployed systems: input validation, output filtering, hallucination reduction pipelines, tool-calling permission boundaries, and confidence-scored fallback mechanisms.</li>
+      <li>Developed <strong>Vertex AI tool-calling agent workflows</strong> with Microsoft Graph API integration for automated enterprise notification pipelines — enabling end-to-end autonomous task completion across Outlook, Teams, and SharePoint.</li>
+      <li>Conducted <strong>leadership-level AI demos</strong> for enterprise stakeholders, presenting production AI systems and AI transformation roadmaps — directly influencing organizational AI adoption strategy.</li>
+      <li>Integrated <strong>multimodal capabilities and vision AI</strong> into document processing workflows, enabling image-aware retrieval and OCR-powered knowledge extraction at enterprise scale.</li>
+    </ul>
+  </div>
+  <div class="achieve-card">
+    <div class="achieve-header">
+      <div class="achieve-icon icon-cognizant"><i class="ti ti-building" aria-hidden="true"></i></div>
+      <div><div class="achieve-company">Cognizant</div><div class="achieve-role">Programmer Analyst &nbsp;·&nbsp; 2023 – 2025</div></div>
+      <span class="achieve-award award-green"><i class="ti ti-award" aria-hidden="true" style="font-size:12px"></i> Spotlight Award</span>
+    </div>
+    <ul class="bullet-list">
+      <li>Built a <strong>RAG-based enterprise chatbot</strong> for Jira teams, enabling context-aware natural language querying of project data, issue history, and sprint documentation — reducing manual lookup time for engineering teams.</li>
+      <li>Led <strong>organization-wide GenAI knowledge-transfer sessions</strong>, upskilling cross-functional teams on LLM fundamentals, RAG architectures, and responsible AI practices — establishing early internal AI competency.</li>
+      <li>Represented AI engineering capability at <strong>internal hackathon demos</strong>, showcasing proof-of-concept AI systems that advanced enterprise adoption conversations at leadership level. <span class="impact-tag">Spotlight Award</span></li>
+      <li>Drove <strong>AI workflow improvement initiatives</strong> across project operations, reducing manual reporting overhead through automated data extraction and summarization pipelines.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PROJECTS -->
+<section id="projects" class="page-section fade-in">
+  <div class="sec-label">Project showcase — click any card to expand</div>
+  <div id="detail-panel" style="display:none"></div>
+  <div class="proj-grid">
+    <div class="proj-card flagship" onclick="expand(0)">
+      <div class="proj-num"><span class="badge badge-gold"><i class="ti ti-award" aria-hidden="true" style="font-size:10px"></i> Flagship</span></div>
+      <div class="proj-title">WTN-Driven Telecom AI — Multi-Agent Troubleshooting System</div>
+      <div class="proj-oneliner">GCP-native Master Agent orchestrating Document, Metrics, and Recommendation agents over Pub/Sub — with hybrid Vertex AI Vector Search + Elasticsearch retrieval, Gemini responses, and Ragas evaluation.</div>
+      <div class="proj-tags"><span class="ptag pt-p">Master Agent</span><span class="ptag pt-p">LangGraph</span><span class="ptag pt-b">Vertex AI</span><span class="ptag pt-b">Gemini</span><span class="ptag pt-t">Hybrid RAG</span><span class="ptag pt-t">Elasticsearch</span><span class="ptag pt-b">Pub/Sub</span><span class="ptag pt-a">Ragas</span><span class="ptag pt-a">Responsible AI</span></div>
+      <span class="badge badge-blue">Enterprise · Production</span>
+    </div>
+    <div class="proj-card" onclick="expand(1)">
+      <div class="proj-title">Multi-Repository Agentic Telecom Knowledge Bot</div>
+      <div class="proj-oneliner">LlamaIndex multi-index RAG system unifying 6 enterprise sources — Jira, SharePoint, Git, ServiceNow, PDFs, Watson — with a custom router, MS Graph API integration, and Responsible AI guardrails.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LlamaIndex</span><span class="ptag pt-p">LangGraph</span><span class="ptag pt-b">Vertex AI Search</span><span class="ptag pt-t">Multi-agent</span><span class="ptag pt-t">RAG</span><span class="ptag pt-a">MS Graph API</span><span class="ptag pt-a">Responsible AI</span></div>
+      <span class="badge badge-blue">Enterprise · Production · Prodapt</span>
+    </div>
+    <div class="proj-card" onclick="expand(2)" style="border:1.5px solid #5DCAA5;position:relative">
+      <div style="position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;padding:3px 9px;border-radius:20px;background:#E1F5EE;color:#085041"><span style="width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;animation:blink 2s infinite;vertical-align:middle"></span>In Progress</div>
+      <div class="proj-title">YukiOS POC — Local-First Autonomous Multi-Agent AI Operating System</div>
+      <div class="proj-oneliner">A self-hosted AI agent stack integrating Telegram, Discord, Claude Code, Paperclip planner, and PostgreSQL memory — orchestrated via a custom FastAPI adapter with a real-time WebSocket dashboard.</div>
+      <div class="proj-tags"><span class="ptag pt-p">FastAPI</span><span class="ptag pt-p">Claude API</span><span class="ptag pt-p">Groq LLaMA</span><span class="ptag pt-t">Multi-agent</span><span class="ptag pt-t">Redis pub/sub</span><span class="ptag pt-b">PostgreSQL</span><span class="ptag pt-b">Docker</span><span class="ptag pt-a">Discord.py</span><span class="ptag pt-a">Telegram</span></div>
+      <span class="badge badge-teal">Agentic OS · Platform engineering</span>
+    </div>
+  
+    <div class="proj-card" onclick="expand(3)">
+      <div class="proj-title">RAG chatbots for documents &amp; websites</div>
+      <div class="proj-oneliner">Production-ready RAG pipeline framework enabling enterprises to deploy context-aware AI chatbots over internal documents, PDFs, and web content with minimal setup.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LangChain</span><span class="ptag pt-t">FAISS</span><span class="ptag pt-t">ChromaDB</span><span class="ptag pt-b">OpenAI</span><span class="ptag pt-g">Streamlit</span></div>
+      <span class="badge badge-purple">RAG · Knowledge retrieval</span>
+    </div>
+    <div class="proj-card" onclick="expand(4)">
+      <div class="proj-title">AI product photography system</div>
+      <div class="proj-oneliner">Vision AI pipeline that automatically generates professional-grade product photography backgrounds using Stable Diffusion, ControlNet, and LoRA.</div>
+      <div class="proj-tags"><span class="ptag pt-c">Stable Diffusion</span><span class="ptag pt-c">ControlNet</span><span class="ptag pt-c">LoRA</span><span class="ptag pt-c">ComfyUI</span><span class="ptag pt-b">Vision AI</span><span class="ptag pt-c">OpenCV</span></div>
+      <span class="badge badge-purple">Vision AI · Generative media</span>
+    </div>
+    <div class="proj-card" onclick="expand(5)">
+      <div class="proj-title">AI storytelling assistant</div>
+      <div class="proj-oneliner">Multimodal AI creative system that generates narrative stories with consistent characters, plot coherence, and AI-generated visual scenes using Vision LLMs and Stable Diffusion.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LangChain</span><span class="ptag pt-c">Stable Diffusion</span><span class="ptag pt-c">ControlNet</span><span class="ptag pt-b">Vision LLM</span><span class="ptag pt-t">AI memory</span></div>
+      <span class="badge badge-purple">Multimodal · Generative AI</span>
+    </div>
+    <div class="proj-card" onclick="expand(6)">
+      <div class="proj-title">Front-end AI UI generator</div>
+      <div class="proj-oneliner">AI system that generates production-ready front-end UI components and layouts from natural language prompts — bridging design intent and code output in seconds.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LLM</span><span class="ptag pt-b">GPT-4</span><span class="ptag pt-t">Prompt engineering</span><span class="ptag pt-g">Flask</span><span class="ptag pt-c">Code generation</span></div>
+      <span class="badge badge-purple">AI productivity · Code gen</span>
+    </div>
+    <div class="proj-card" onclick="expand(7)">
+      <div class="proj-title">AI teaching assistant for assignment evaluation</div>
+      <div class="proj-oneliner">LLM-powered academic assistant that evaluates student assignments, provides structured feedback, and adapts difficulty to individual learners.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LangChain</span><span class="ptag pt-b">GPT-4</span><span class="ptag pt-t">Prompt engineering</span><span class="ptag pt-g">Gradio</span><span class="ptag pt-a">AI evaluation</span></div>
+      <span class="badge badge-teal">EdTech · LLM application</span>
+    </div>
+    <div class="proj-card" onclick="expand(8)">
+      <div class="proj-title">Multipurpose LLM chatbot</div>
+      <div class="proj-oneliner">Modular, model-agnostic AI chatbot supporting OpenAI, Gemini, and Claude with pluggable tools, conversation memory, and persona switching.</div>
+      <div class="proj-tags"><span class="ptag pt-p">LangChain</span><span class="ptag pt-b">OpenAI</span><span class="ptag pt-b">Gemini</span><span class="ptag pt-b">Claude</span><span class="ptag pt-t">AI memory</span><span class="ptag pt-g">Streamlit</span></div>
+      <span class="badge badge-teal">LLM platform · Framework</span>
+    </div>
+  </div>
+</section>
+
+
+
+<hr class="section-divider">
+
+<!-- CONTACT / CTA -->
+<!-- <section id="contact" class="page-section fade-in">
+  <div class="cta-block">
+    <div class="cta-title">Ready to build something real?</div>
+    <p class="cta-sub">Book a free 30-minute discovery call. Bring your problem — I'll bring the architecture thinking. No commitment, no pitch.</p>
+    <div class="cta-btns">
+      <a href="mailto:harieshkumar17@gmail.com" class="cta-primary">Connect with me</a>
+      <a href="https://www.linkedin.com/in/hariesh-kumar-s-k-genai-engineer" class="cta-secondary">Connect on LinkedIn</a>
+      <a href="#" class="cta-secondary">Download resume</a>
+    </div>
+    <p class="cta-reassure">Open to enterprise engagements · Consulting · Collaborations</p>
+  </div>
+</section> -->
+
+<section id="contact" class="page-section fade-in">
+  
+    <div class="cta-btns">
+      <a href="mailto:harieshkumar17@gmail.com" class="cta-primary">Connect with me</a>
+      <a href="https://www.linkedin.com/in/hariesh-kumar-s-k-genai-engineer" class="cta-secondary">Connect on LinkedIn</a>
+      <a href="#" class="cta-secondary">Download resume</a>
+    </div>
+  
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Hariesh Kumar S K &nbsp;·&nbsp; Senior Generative AI Engineer &nbsp;·&nbsp; Banglore, India</span><br>
+  <span style="margin-top:.4rem;display:block">Built with HTML · Hosted on GitHub Pages · &copy; 2026</span>
+</footer>
+
+<script>
+/* Expand/collapse projects */
+const projects=[{num:"01",title:"WTN-Driven Telecom AI — Multi-Agent Troubleshooting System",company:"Prodapt · Production system · GCP-native",problem:"Telecom operations teams had no unified AI layer to retrieve WTN-specific troubleshooting steps, surface customer 360 data, classify fault types, and route tickets autonomously — all within a governed, auditable pipeline on GCP.",architecture:["User / Streamlit UI","FastAPI (Cloud Run)","Master Agent (Python async)","Document Agent → Vertex AI Vector Search + Elasticsearch BM25","Metrics Agent → BigQuery + Firestore","Recommendation Agent → Gemini (Vertex AI)","Pub/Sub event bus","Firestore (session) + BigQuery (logs)"],bullets:["Architected a GCP-native Master Agent orchestrating three specialist agents — Document, Metrics, and Recommendation — over a Pub/Sub async event bus, enabling fault-tolerant multi-agent coordination at production scale","Built a hybrid retrieval pipeline combining Vertex AI Vector Search (semantic, textembedding-gecko) with Elasticsearch BM25 keyword search — improving retrieval precision for telecom-specific WTN troubleshooting queries","Integrated a Metrics Agent querying BigQuery (customer_360, troubleshooting_metrics, step_performance) and Firestore for real-time session state — enabling context-aware, per-customer troubleshooting decisions","Connected a Recommendation Agent powered by Gemini on Vertex AI with a structured prompt builder, delivering ranked next-best-action suggestions grounded in retrieved knowledge","Implemented Ragas-based evaluation pipeline for automated RAG quality assessment — measuring faithfulness, answer relevancy, and context precision across troubleshooting sessions","Designed Responsible AI guardrails: input validation, hallucination reduction via source citation enforcement, confidence-scored fallbacks, tool-calling permission boundaries, and full decision traceability logging in BigQuery","Deployed FastAPI on Cloud Run with Dockerized containers, multi-service Pub/Sub topics, and Streamlit UI — handling enterprise-scale telecom documentation and live operational data"],impact:["GCP-native multi-agent production system","Hybrid semantic + keyword retrieval","Ragas evaluation pipeline","Rising Rookie Award"],tags:["Master Agent","LangGraph","Vertex AI Vector Search","Elasticsearch","Gemini","textembedding-gecko","BigQuery","Firestore","Pub/Sub","Cloud Run","FastAPI","Streamlit","Ragas","Responsible AI","Docker"]},{num:"02",title:"Multi-Repository Agentic Telecom Knowledge Bot",company:"Prodapt · Production system",problem:"Telecom operations engineers wasted hours searching across 6 disconnected enterprise systems — Jira, SharePoint, Git, ServiceNow, PDFs, and Watson — with no unified AI interface. Each system required separate logins and queries, with no cross-system context.",architecture:["User query","LlamaIndex multi-index router","Vertex AI Search","SharePoint / Jira / Git / ServiceNow / PDF / Watson","MS Graph API connector","Context fusion layer","Guardrail + citation layer","Governed LLM response"],bullets:["Architected a multi-index RAG system using LlamaIndex with a custom router that intelligently directs queries to the most relevant knowledge source across 6 enterprise systems — selecting the correct index based on query intent","Integrated Microsoft Graph API for live SharePoint and Teams data retrieval, enabling real-time knowledge access from actively updated documents rather than stale snapshots","Built a multi-agent orchestration layer over LlamaIndex to coordinate context retrieval, fallback routing, and response synthesis across heterogeneous enterprise data sources","Designed a Responsible AI guardrail layer with input validation, source citation enforcement on every response, confidence-scored fallbacks, and human escalation for low-confidence retrievals","Deployed on GCP with Vertex AI Search as the enterprise search backbone, handling large-scale telecom documentation with sub-second retrieval at production latency","Connected to Watson, ServiceNow, and Git repositories via custom connectors with schema-aware parsing — normalizing diverse data formats into a unified retrieval context","Conducted leadership-level AI demos for enterprise stakeholders, presenting the system as a unified telecom knowledge layer and directly influencing organizational AI adoption roadmap"],impact:["6 enterprise systems unified","Cross-system context-aware retrieval","Responsible AI guardrails in production","Leadership-level AI demo"],tags:["LlamaIndex","LangGraph","Vertex AI Search","MS Graph API","SharePoint","Jira","ServiceNow","Watson","RAG","Multi-agent","Responsible AI","GCP","Guardrails","ChromaDB"]},{num:"09",title:"YukiOS POC — Local-First Autonomous Multi-Agent AI Operating System",company:"Personal project · In Progress",problem:"Most AI agent experiments are tightly coupled to cloud APIs and lack a persistent, self-hosted memory layer. The goal was to build a local-first autonomous agent OS with real messaging integrations, a structured memory backend, and a multi-agent orchestration bus — running on a single machine.",architecture:["Telegram / Discord input","Hermes gateway","FastAPI adapter","Redis pub/sub bus","Multi-agent dispatch","Paperclip planner","PostgreSQL memory","Real-time WebSocket dashboard"],bullets:["Architected a multi-agent system with named specialist agents (Hermes, Paperclip, Ruflo, Security Agent) communicating over a Redis pub/sub event bus — decoupling message routing from agent logic entirely","Built a FastAPI async backend with SQLAlchemy async ORM, connecting to a normalized 8-table PostgreSQL schema with JSONB fields, TIMESTAMPTZ columns, and indexed foreign keys","Integrated Groq API (llama-3.3-70b-versatile) and Anthropic Claude API as dual LLM backends for classification and summarization pipelines inside the agent layer","Implemented a Discord bot (discord.py) with slash commands, @mention handling, and channel modes alongside a Telegram gateway for unified multi-platform messaging","Designed a Claude Code CLI orchestration layer with human approval workflow gates — enabling autonomous code execution with security checkpoints","Built a real-time HTML/CSS/JS dashboard with WebSocket live feed and REST API-backed UI for monitoring agent activity and memory state","Containerized the full system with Docker Compose — multi-service: Python FastAPI, Node, PostgreSQL, Redis — with environment-based config via pydantic-settings","Added a 16-check pre-flight test harness, bash/batch scripting for cross-platform local dev, and Obsidian vault integration for structured knowledge routing"],impact:["Full local-first autonomous agent stack","Multi-platform messaging — Telegram + Discord","Real-time WebSocket monitoring dashboard","Claude Code CLI with security approval gates"],tags:["FastAPI","Python","SQLAlchemy","PostgreSQL","Redis","Groq API","Claude API","Discord.py","Telegram","Docker","Docker Compose","WebSocket","Multi-agent","Pydantic","asyncpg"]},{num:"03",title:"RAG chatbots for documents and websites",company:"Personal project · Open-source framework",problem:"Enterprises and teams routinely struggle to make their internal knowledge — documents, PDFs, websites — queryable by non-technical users. Building RAG from scratch is complex and time-consuming.",architecture:["Document / URL input","Loader & chunker","Embedding model","Vector store","Query engine","LLM synthesis","Cited response","Streamlit UI"],bullets:["Built a reusable RAG pipeline framework supporting both document ingestion (PDFs, DOCX, TXT) and live web scraping — enabling rapid deployment of knowledge chatbots over any content source","Implemented hybrid retrieval combining dense vector search (FAISS/ChromaDB) with metadata filtering for precision-tuned results","Added source citation enforcement to every generated response — grounding outputs and reducing hallucination risk at the architecture level","Designed a configurable chunking strategy layer allowing users to tune chunk size and overlap per document type for optimal retrieval quality","Packaged as a Streamlit app for immediate usability by non-technical stakeholders"],impact:["Reusable across industries","Citation-enforced outputs","PDF + web support","Rapid deployment"],tags:["LangChain","FAISS","ChromaDB","OpenAI","Streamlit","Hybrid retrieval","Source citation","Chunking strategies"]},{num:"08",title:"AI product photography system",company:"Personal project · Vision AI & Generative media",problem:"Professional product photography is expensive, slow, and logistically complex. E-commerce teams need high-quality product images at scale — without studio shoots for every SKU.",architecture:["Product image input","OpenCV preprocessing","Background segmentation","Scene prompt engineering","Stable Diffusion inpainting","ControlNet structure","LoRA style tuning","Final composite output"],bullets:["Built an end-to-end vision AI pipeline using OpenCV for product image preprocessing — background removal, segmentation, and depth estimation","Designed a scene prompt engineering layer that generates photorealistic environment descriptions tailored to the product category","Used Stable Diffusion inpainting to seamlessly composite the product into AI-generated photographic backgrounds","Integrated ControlNet depth conditioning to ensure product shadows and perspective remain physically consistent with the generated background","Applied LoRA fine-tuning to maintain consistent brand-appropriate visual style across all generated images"],impact:["Studio-quality images at scale","Zero photography overhead","Consistent brand style","Full product catalogue support"],tags:["Stable Diffusion","ControlNet","LoRA","ComfyUI","OpenCV","Vision AI","Inpainting","Google Vision API"]},{num:"06",title:"AI storytelling assistant",company:"Personal project · Multimodal AI",problem:"AI creative tools generate text or images in isolation — but coherent storytelling requires narrative continuity, consistent characters, and visual scenes that match the story context.",architecture:["Story prompt","LLM narrative engine","Character memory store","Scene description extractor","Stable Diffusion","ControlNet conditioning","Image + text assembly","Multimodal output"],bullets:["Built a narrative memory system using LangChain conversation memory to maintain character attributes, story arc, and world state across multiple story generations","Designed a scene extraction pipeline that parses LLM-generated story text for visual scene descriptors, then converts them into structured Stable Diffusion prompts","Integrated ControlNet for compositional control over generated scenes — ensuring character positions and environment stay consistent with the narrative context","Used LoRA fine-tuned models for character consistency across generated images","Combined LLM narrative output and AI-generated images into a formatted story document"],impact:["Cross-chapter narrative coherence","Character-consistent visuals","Text-to-image scene pipeline","End-to-end multimodal output"],tags:["LangChain","Stable Diffusion","ControlNet","LoRA","Vision LLM","AI memory","Multimodal","ComfyUI"]},{num:"05",title:"Front-end AI UI generator",company:"Personal project · AI developer tooling",problem:"Developers and designers spend significant time translating design intent into code. Bridging natural language descriptions to usable UI components requires both design taste and coding speed.",architecture:["Natural language prompt","Intent parser","UI design context","LLM code generator","Component renderer","Live preview","Code export","Flask API"],bullets:["Designed a multi-stage prompt pipeline that extracts UI intent — component type, layout, color scheme, interactions — from natural language before passing structured context to the code generation LLM","Built a component renderer that interprets generated HTML/CSS/JS in a sandboxed live preview, enabling instant visual validation","Implemented prompt refinement loops allowing users to iteratively adjust generated UI through conversational follow-up","Added a design system context injection layer that constrains outputs to a target component library","Served via a Flask API for integration into existing developer workflows"],impact:["Natural language to UI code","Live preview validation","Iterative refinement loop","Developer workflow integration"],tags:["LLM","GPT-4","Prompt engineering","Flask","Code generation","HTML/CSS/JS","Sandboxed preview"]},{num:"04",title:"AI teaching assistant for assignment evaluation",company:"Personal project · EdTech AI",problem:"Manual assignment grading is time-intensive, subjective, and provides delayed feedback to students. Teachers in large cohorts struggle to give personalized, consistent assessment at scale.",architecture:["Assignment submission","Rubric context injection","LLM evaluator","Structured feedback generator","Score calibration","Pattern tracker","Difficulty adapter","Student report"],bullets:["Engineered a structured prompt framework that ingests assignment rubrics as context, enabling the LLM to evaluate against specific criteria rather than generic quality signals","Built a JSON-structured output pipeline that produces actionable feedback across defined dimensions — correctness, clarity, depth, and originality — for each submission","Implemented a performance pattern tracker that identifies recurring weaknesses across a student's submission history","Designed adaptive difficulty scoring that adjusts grading sensitivity based on course level and prior student performance","Deployed via Gradio for direct accessibility by educators with no technical background"],impact:["Consistent rubric-aligned grading","Personalized longitudinal feedback","Educator-ready UI","Scalable to large cohorts"],tags:["LangChain","GPT-4","Prompt engineering","Structured outputs","Gradio","AI evaluation","JSON schema"]},{num:"07",title:"Multipurpose LLM chatbot",company:"Personal project · Platform engineering",problem:"Most LLM chatbot implementations are hard-coded to one model and one use case. Teams adopting AI need a flexible platform that can switch models, personas, and capabilities without re-engineering.",architecture:["User query","Model router","LLM backend (OpenAI/Gemini/Claude)","Conversation memory","Tool registry","Response synthesizer","Persona layer","Streamlit UI"],bullets:["Built a model-agnostic chatbot architecture with a unified interface layer supporting OpenAI GPT, Gemini, and Claude — enabling instant model swapping without application changes","Implemented a pluggable tool registry allowing users to attach web search, calculator, code execution, or custom API tools to any conversation session","Designed a persona configuration system enabling domain-specific personas via system prompt injection","Added persistent conversation memory with configurable window sizes and summary compression","Packaged as a shareable Streamlit app deployable on Hugging Face Spaces"],impact:["3 LLM backends supported","Pluggable tool system","Persona configuration","Hugging Face deployment"],tags:["LangChain","OpenAI","Gemini","Claude","AI memory","Tool calling","Streamlit","Hugging Face Spaces"]}];
+
+function expand(i){
+  const p=projects[i];
+  const steps=p.architecture.map((s,j)=>`<span class="arch-step">${s}</span>${j<p.architecture.length-1?'<span class="arch-arrow">→</span>':''}`).join('');
+  const bullets=p.bullets.map(b=>`<li>${b}</li>`).join('');
+  const impacts=p.impact.map(im=>`<span class="impact-chip">${im}</span>`).join('');
+  const tags=p.tags.map(t=>`<span class="ptag pt-b" style="font-size:11px;padding:3px 8px">${t}</span>`).join('');
+  document.getElementById('detail-panel').innerHTML=`<div class="detail-panel"><div class="detail-header"><div><div class="detail-title">Project ${p.num} — ${p.title}</div><div class="detail-sub">${p.company}</div></div><button class="close-btn" onclick="document.getElementById('detail-panel').style.display='none'">Close</button></div><div class="detail-body"><div class="detail-col"><h4>Problem statement</h4><p>${p.problem}</p><h4 style="margin-top:12px">Business impact</h4><div class="impact-row">${impacts}</div></div><div class="detail-col"><h4>Engineering decisions</h4><ul>${bullets}</ul></div></div><div class="arch-row"><div class="arch-label">System architecture flow</div><div class="arch-steps">${steps}</div></div><div style="margin-top:12px"><div class="arch-label">Tech stack</div><div class="proj-tags">${tags}</div></div></div>`;
+  document.getElementById('detail-panel').style.display='block';
+  document.getElementById('detail-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* Scroll fade-in */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+/* Active nav link */
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  navLinks.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--color-text-primary)':'var(--color-text-secondary)'});
+},{passive:true});
+</script>
+</body>
+</html>
